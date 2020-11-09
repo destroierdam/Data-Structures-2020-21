@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 template <typename T>
 class LList {
@@ -9,6 +10,8 @@ public:
 	~LList();
 
 	void push_back(const T&);
+	void push_front(const T& newElement);
+	void removeFirst();
 	void print() const;
 	T& operator[](size_t);
 	size_t size();
@@ -101,6 +104,20 @@ void LList<T>::push_back(const T& element) {
 	curr->next = new Node{ element, nullptr };
 }
 
+template<typename T>
+void LList<T>::push_front(const T& newElement) {
+	this->first = new Node(newElement, first);
+}
+
+template<typename T> 
+void LList<T>::removeFirst() {
+	if(first == nullptr){
+		return;
+	}
+	Node* toDelete = first;
+	first = first->next;
+	delete toDelete;
+}
 template <typename T>
 T& LList<T>::operator[] (size_t position) // O(n)
 {
