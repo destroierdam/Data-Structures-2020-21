@@ -18,4 +18,3 @@ int main()
     std::cout << "Finished\n";
     return 0;
 }
-

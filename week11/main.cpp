@@ -96,7 +96,6 @@ public:
         }
 
         std::queue<Node<T>*> q;
-
         q.push(root);
         q.push(nullptr);
         int sum = 0;
@@ -108,7 +107,9 @@ public:
             if(current == nullptr) {
 				std::cout << sum << std::endl;
 				sum = 0;
+
                 q.push(nullptr);
+                
                 current = q.front();
                 q.pop();
                 
